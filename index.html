@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아마오토 | 링크페이지</title>
+    <style>
+      :root {
+        --bg-color: #f9f6f2;
+        --text-color: #333;
+        --card-bg: #ffffff;
+        --button-bg: #8b4513;
+        --button-hover: #a0522d;
+      }
+
+      body.dark {
+        --bg-color: #1a1a1a;
+        --text-color: #f1f1f1;
+        --card-bg: #2a2a2a;
+        --button-bg: transparent;
+        --button-hover: #e0e0e0;
+      }
+
+      body.dark .link-button {
+        background-color: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+      }
+
+      body.dark .link-button:hover {
+        background-color: #e0e0e0; /* 연회색 배경 */
+        color: #000; /* 글자는 검정 */
+        border-color: #e0e0e0; /* 테두리도 연회색으로 */
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: "Noto Sans KR", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: background-color 0.4s ease, color 0.4s ease;
+      }
+
+      .container {
+        max-width: 500px;
+        padding: 20px;
+      }
+
+      .logo img {
+        width: 150px;
+        margin-top: 40px;
+        /* border-radius: 50%; */
+        /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
+        transition: all 0.4s ease;
+      }
+
+      body.dark .logo img {
+        transform: scale(1.19);
+        height: auto;
+      }
+
+      .description {
+        margin: 10px 0 20px 0;
+        font-size: 1.2rem;
+        line-height: 1.6;
+      }
+
+      .tips {
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        font-size: 1rem;
+      }
+
+      .link-button {
+        display: block;
+        width: 90%;
+        max-width: 400px;
+        margin: 10px auto;
+        padding: 15px;
+        background-color: var(--button-bg);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .link-button:hover {
+        background-color: var(--button-hover);
+        transform: scale(1.03);
+      }
+
+      .toggle-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: 2px solid var(--text-color);
+        border-radius: 20px;
+        padding: 5px 15px;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .toggle-btn:hover {
+        background-color: var(--text-color);
+        color: var(--bg-color);
+        border-color: var(--text-color);
+      }
+
+      @media (max-width: 600px) {
+        .description {
+          font-size: 1rem;
+        }
+        .tips {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="dark">
+    <button class="toggle-btn" onclick="toggleTheme()">☀️ 라이트 모드</button>
+
+    <div class="container">
+      <div class="logo">
+        <img id="logo-img" src="assets/logo_light.png" alt="아마오토 로고" />
+      </div>
+
+      <div class="description">
+        <strong>ONE SWEET NOTE!</strong><br />
+        <strong>아마오토(甘音)</strong>는 일본어로 “달콤한 소리”라는 뜻이에요.
+        고양시에 자리한 작은 작업실에서 수제 바스크치즈케이크를 정성껏 만듭니다.
+      </div>
+
+      <div class="tips">
+        🍮 <strong>맛있게 먹는 법</strong><br /><br />
+        - 받는 즉시 냉동 보관 필수 ❄️<br />
+        (수령 당일 드시려면 냉장보관 가능합니다!)<br />
+        - 3시간 이상 냉장 해동하면 촉촉한 식감으로!<br />
+        - 1~2시간 해동하면 아이스 바치케로! 🧊<br />
+      </div>
+
+      <a
+        class="link-button"
+        href="https://mkt.shopping.naver.com/link/685b93351493aa51b54c05d1"
+        target="_blank"
+        >🛒 스마트스토어 바로가기</a
+      >
+      <a
+        class="link-button"
+        href="https://www.instagram.com/amaoto.dessert/"
+        target="_blank"
+        >📸 인스타그램</a
+      >
+    </div>
+
+    <script>
+      function toggleTheme() {
+        document.body.classList.toggle("dark");
+        const btn = document.querySelector(".toggle-btn");
+        const logoImg = document.getElementById("logo-img");
+
+        if (document.body.classList.contains("dark")) {
+          btn.textContent = "☀️ 라이트 모드";
+          logoImg.src = "assets/logo_dark.png"; // 다크 모드용 로고
+        } else {
+          btn.textContent = "🌙 다크 모드";
+          logoImg.src = "assets/logo_light.png"; // 라이트 모드용 로고
+        }
+      }
+    </script>
+  </body>
+</html>
